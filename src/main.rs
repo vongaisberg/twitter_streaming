@@ -39,7 +39,7 @@ async fn main() {
             if now.get().elapsed().as_secs() > 10 {
                 println!(
                     "Tweets pro Sekunde: {}, Gesamtanzahl: {}",
-                    count.get() as f64 / now.get().elapsed().as_millis() as f64 * 100f64,
+                    count.get() as f64 / now.get().elapsed().as_millis() as f64 * 1000f64,
                     count_total.get()
                 );
                 now.set(Instant::now());
