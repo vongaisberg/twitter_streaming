@@ -1,15 +1,14 @@
 #![feature(cell_update)]
 
 use futures::prelude::*;
-use mongodb::bson::{doc, to_document, Bson, Document};
+use mongodb::bson::{to_document, Document};
 use mongodb::{options::ClientOptions, Client};
-use serde_json::{Result, Value};
+use serde_json::Value;
 use std::cell::Cell;
-use std::collections::HashMap;
-use std::time::{Duration, Instant};
-use twitter_stream::builder::FilterLevel;
+
+use std::time::Instant;
+
 use twitter_stream::{Token, TwitterStream};
-use url::Url;
 
 use dotenv::dotenv;
 use std::env;
