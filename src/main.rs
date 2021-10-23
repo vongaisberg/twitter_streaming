@@ -31,6 +31,7 @@ async fn main() {
     let now = Cell::new(Instant::now());
     let count = Cell::new(0u64);
     let count_total = Cell::new(0u64);
+    loop {
     TwitterStream::sample(&token)
         .try_flatten_stream()
         .for_each(|json| async {
@@ -59,7 +60,7 @@ async fn main() {
                 }
             }
         })
-        .await;
+        .await;}
 }
 
 async fn connect() -> mongodb::Client {
