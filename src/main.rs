@@ -8,7 +8,7 @@ use std::cell::Cell;
 
 use std::time::Instant;
 
-use twitter_stream::{Token, TwitterStream};
+use twitter_stream::{Token, TwitterStream, };
 
 use dotenv::dotenv;
 use std::env;
@@ -32,7 +32,7 @@ async fn main() {
     let count = Cell::new(0u64);
     let count_total = Cell::new(0u64);
     loop {
-    TwitterStream::sample(&token)
+    TwitterStream::track("https AND has:media", &token)
         .try_flatten_stream()
         .for_each(|json| async {
             count.update(|v| v + 1);
